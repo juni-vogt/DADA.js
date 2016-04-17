@@ -134,7 +134,7 @@ DADA cannot be stopped.
 ## Browser support
 This uses CSS3 transitions, animations and filters, so full [browser support](http://caniuse.com/#feat=css-transitions) is ie10+. Everything >ie8 should degrade just fine, though.
 
-Yes, it's responsive*.<br>\*kinda
+Yes, it's responsive*.<br> \*kinda
 
 ## Contributing
 You are very welcome to contribute! Please send pull requests and issues.
