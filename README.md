@@ -1,7 +1,7 @@
 # DADA.js
 Bring DADA to your website!
 
-[![Demo](//raw.githubusercontent.com/matthias-vogt/DADA.js/gh-pages/demo-media/img/demo.gif)](//matthias-vogt.github.io/DADA.js)
+[![Demo](https://raw.githubusercontent.com/matthias-vogt/DADA.js/gh-pages/demo-media/img/demo.gif)](//matthias-vogt.github.io/DADA.js)
 
 Demo: [matthias-vogt.github.io/DADA.js](//matthias-vogt.github.io/DADA.js)
 
