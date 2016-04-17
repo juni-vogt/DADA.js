@@ -1,0 +1,244 @@
+/*!
+ * DADA.scss (github.com/matthias-vogt/DADA.js)
+ *
+ * Copyright (c) 2016 Matthias Vogt
+ * Released under the WTFPL
+ */
+
+// border like windows 98
+@mixin winborder() {
+	border-color: white black black white;
+	border-style: outset;
+	box-shadow: -1px -1px 4px -2px black inset, 1px 1px 4px -2px white inset;
+}
+
+$ease-in-out-bounce: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+$gray: silver;
+$gray: #b7c0bf; // a little more blue than original for visible hue-rotation
+
+.DADA {
+
+	box-sizing: border-box;
+	*, *:before, *:after {
+		box-sizing: inherit;
+	}
+
+	font-size: 1rem;
+	position: fixed;
+	top: 50vh;
+	left: 50vw;
+	transform: translate(-50%, -50%) scale(1);
+	z-index: 999;
+	display: block;
+	height: 100vh;
+	width: 100vw;
+
+	transition: transform .5s $ease-in-out-bounce; // for scaling out at the end
+
+	display: none;
+	&.start {
+		display: block;
+	}
+
+	&.end {
+		transform: translate(-50%, -50%) scale(0);
+	}
+
+	&>*:not(.window) {
+		// hide audio elements, preloading icons and the like
+		display: none;
+	}
+
+	.window {
+
+		display: none;
+		&.visible {
+			display: inline-block;
+		}
+
+		transition:
+		// // for smooth evasion
+		// top .1s linear,
+		// left .1s linear,
+		transform .3s cubic-bezier(0.34, -0.44, 0.56, -0.19);
+
+		position: fixed;
+		width: 24em;
+		max-width: calc(100% - 2rem);
+		@include winborder();
+		font-family: "Arial", sans-serif;
+		background: $gray;
+		line-height: 1.25;
+
+		transform: none;
+
+		.bar {
+			width: 100%;
+			padding: .25em;
+			color: white;
+			background: linear-gradient(90deg, #070781, #0A7BCA);
+		}
+		.close {
+			font-family: Monaco, 'Courier New', monospace;
+			padding: 0px 1px 3px 0px;
+			line-height: 0;
+			margin: -.0625em;
+			float: right;
+			height: 1.5em;
+			width: 1.5em;
+			font-size: 0.9em;
+		}
+		.content {
+			padding: 2em 1.25em 1em;
+			display: inline-block;
+			width: 100%;
+		}
+
+		.icon, .text {
+			float: left;
+		}
+		.icon {
+			width: 3em;
+		}
+		.text {
+			max-width: 100%;
+			padding-left: 4.5em;
+			margin-left: -3.5em;
+			float: left;
+			/* width: calc(100% - 5em); */
+
+			button {
+				clear: left;
+				margin-top: 1em;
+				min-width: 7em;
+				padding: .25em 1.25em;
+				margin-right: .2em;
+
+				&:focus {
+					outline: solid black 2px;
+				}
+			}
+		}
+
+		button {
+			@include winborder();
+			background: $gray;
+			&:hover {
+				background: #ccc;
+			}
+			&:active {
+				border-style: inset;
+			}
+
+			font: inherit;
+			&:focus {
+				outline: 0;
+			}
+		}
+	}
+
+	$color-animations: sat linear 2s infinite, hue linear 2s infinite;
+
+	.animation-1 {
+		animation: spin linear 2.1s infinite, $color-animations;
+	}
+	.animation-2 {
+		animation: scale $ease-in-out-bounce 1.4s infinite, $color-animations;
+	}
+	.animation-3 {
+		animation: stutter $ease-in-out-bounce 1.9s infinite, $color-animations;
+	}
+
+	// Disable color animations in Firefox because they're too memory intensive
+	@-moz-document url-prefix() {
+		.animation-1 {
+			animation: spin linear 2.1s infinite;
+		}
+		.animation-2 {
+			animation: scale $ease-in-out-bounce 1.4s infinite;
+		}
+		.animation-3 {
+			animation: stutter $ease-in-out-bounce 1.9s infinite;
+		}
+	}
+
+	.window:first-of-type {
+		animation:
+			fadeOut .3s cubic-bezier(0.34, -0.44, 0.56, -0.19) 0s forwards 1 reverse,
+			sat linear 2s 4s infinite, hue linear 2s 4s infinite;
+		top: 50% !important;
+		left: 50% !important;
+		transform: translate(-50%, -50%) scale(1);
+		&.is-clicked {
+			transform: translate(-50%, -50%) scale(0);
+		}
+	}
+	.window.is-clicked {
+		transform: scale(0);
+	}
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+@keyframes scale {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(2);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+@keyframes stutter {
+	0% {
+		transform: translate(-12.5%, -12.5%);
+	}
+	25% {
+		transform: translate(12.5%, 12.5%);
+	}
+	50% {
+		transform: translate(12.5%, -12.5%);
+	}
+	75% {
+		transform: translate(12.5%, -12.5%);
+	}
+	100% {
+		transform: translate(-12.5%, -12.5%);
+	}
+
+}
+@keyframes hue {
+	from {
+		filter: hue-rotate(0deg);
+	}
+	from {
+		filter: hue-rotate(360deg);
+	}
+}
+@keyframes sat {
+	0% {
+		filter: saturate(1);
+	}
+	50% {
+		filter: saturate(2);
+	}
+	100% {
+		filter: saturate(1);
+	}
+}
+@keyframes fadeOut {
+	from {
+		transform: translate(-50%, -50%) scale(1);
+	}
+	to {
+		transform: translate(-50%, -50%) scale(0);
+	}
+}

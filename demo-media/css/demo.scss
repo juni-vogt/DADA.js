@@ -1,0 +1,158 @@
+@import "_checkbox.scss";
+
+/* Standard */
+
+body {
+	margin: 0;
+	width: 100%;
+	/* making body always have 100% width, even if "display" is other than block */
+	-webkit-font-smoothing: subpixel-antialiased;
+	/* forcing this prevents font thickness flickering in safari */
+}
+
+html {
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+/* apply a natural box layout model to all elements, but allowing components */
+/* to change */
+
+body *, *:before, *:after {
+	margin-top: 0;
+	/* only use margin-bottom defaults */
+}
+
+textarea {
+	resize: vertical;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+p, li {
+	line-height: 1.6;
+}
+
+#browserupgrade {
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	background: #f5dba9;
+	padding: 1em;
+	text-align: center;
+}
+
+/* /Standard */
+
+body {
+	font: 1.2rem Helvetica Neue, Helvetica, sans-serif;
+}
+
+main {
+	width: 40rem;
+	max-width: 100%;
+	margin: 8rem 6rem 4rem;
+	padding: 0 2rem;
+}
+@media (max-width: 52rem) {
+	main {
+		margin: 8rem auto;
+	}
+}
+
+@media (max-width: 30rem) {
+	main {
+		margin-top: 4rem;
+	}
+}
+
+h1 {
+	font-size: 4em;
+	font-weight: 500;
+	margin-bottom: .75rem;
+}
+
+.github-logo {
+	fill: currentColor;
+	height: 1.9rem;
+	width: 1.9rem;
+	transition: fill .1s;
+}
+
+header {
+	margin-bottom: 5rem;
+}
+
+a {
+	display: inline-block;
+}
+a>* {
+	vertical-align: middle;
+}
+a:hover .github-logo {
+	fill: blue;
+}
+a:hover {
+	color: blue;
+}
+a span {
+	background: linear-gradient(currentColor, currentColor) 0px 1.075em / 0.1em repeat-x;
+}
+a:hover span, .countdown a:hover {
+	/* Hack around chrome bug with currentColor in gradients */
+	/* see stackoverflow.com/questions/36046185/ */
+	/* arbitrary webkit-only property that forces a redraw */
+	-webkit-margin-start: .1px;
+}
+
+h2 {
+	font-size: 1em;
+}
+code {
+	background: #eee;
+	border-radius: 4px;
+	padding: .5em;
+	margin: -.5em 0;
+	font-size: 1em;
+	display: block;
+}
+code.terminal:before {
+	content: "$ ";
+}
+
+label {
+	font-size: 1em;
+	margin-bottom: .5em;
+	display: inline-block;
+}
+label, .dada-button-container {
+	user-select: none;
+}
+.dada-button-container {
+	display: none;
+}
+#enable-button:checked ~ .dada-button-container {
+	display: block;
+}
+
+.dada-button-container, .countdown {
+	margin-top: 2rem;
+}
+#enable-button:checked ~ .countdown {
+	display: none;
+}
+
+.countdown {
+	font-size: 2em;
+}
+.countdown time {
+	color: #ffbb43;
+}
+.countdown a {
+	font-size: .6em;
+	background: linear-gradient(currentColor, currentColor) 0px 1.2em / 0.1em repeat-x;
+}

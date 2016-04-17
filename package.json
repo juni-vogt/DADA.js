@@ -1,0 +1,52 @@
+{
+  "name": "dada",
+  "version": "0.1.2",
+  "author": "Matthias Vogt",
+  "bugs": "https://github.com/matthias-vogt/DADA.js/issues",
+  "dependencies": {
+    "jquery": "^2.2.3"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.12.3",
+    "gulp": "^3.9.1",
+    "gulp-add-src": "^0.2.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-clean-css": "^2.0.6",
+    "gulp-concat": "^2.6.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.4",
+    "gulp-sass": "^2.2.0",
+    "gulp-uglify": "^1.5.3",
+    "js-cookie": "^2.1.0",
+    "jshint": "^2.9.1",
+    "jshint-stylish": "^2.1.0",
+    "node-sass": "^3.4.2"
+  },
+  "homepage": "https://matthias-vogt.github.io/DADA.js",
+  "keywords": [
+    "DADA",
+    "DADA-js",
+    "DADA.js",
+    "DADAismus",
+    "DADAjs",
+    "jQuery",
+    "jQuery plugin",
+    "plugin",
+    "virus",
+    "windows98"
+  ],
+  "license": "SEE LICENSE IN LICENSE FILE",
+  "repository": {
+    "type": "git",
+    "url": "matthias-vogt/DADA.js"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "clean": "rm -rf dist && rm -rf demo-media/dist",
+    "postinstall": "npm run build",
+    "rebuild": "npm run clean && npm run build",
+    "start": "gulp",
+    "test": "echo \"Tests are located in the `/test` directory.\" && exit 1"
+  }
+}

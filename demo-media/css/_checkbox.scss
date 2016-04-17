@@ -1,0 +1,94 @@
+/*
+  Copyright Matthias Vogt 2016
+  All rights reserved.
+*/
+
+$checkmarkSVG: '<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xml:space="preserve" filter="url(#dropShadow)" fill="white" viewBox="0 0 9 9"><defs><filter id="dropShadow" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .5 0" /><feGaussianBlur stdDeviation=".4"></feGaussianBlur><feOffset dx="0" dy=".5" result="shadow"></feOffset><feComposite in="SourceGraphic" in2="shadow" operator="over"></feComposite></filter></defs><rect x="0" y="4.3" transform="matrix(-0.707 -0.7072 0.7072 -0.707 0.5891 10.4702)" width="4.3" height="1.6" /><rect x="2.2" y="2.9" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 12.1877 2.9833)" width="6.1" height="1.7" /></svg>';
+// checkmark could also be replaced with an icon font or unicode but zoom animations would be harder
+
+[type="checkbox"].substituted {
+  // can't have visibility: hidden; or display: none; or they wouldn't be focusable/usable
+  position: fixed;
+  top: -999px;
+
+  &+label:before {
+    content: "";
+    display: inline-block;
+    vertical-align: top;
+    height: 1.15em;
+    width: 1.15em;
+    margin-right: .275em;
+
+    color: rgba(0,0,0,0.275);
+    border: solid .06em;
+    box-shadow:
+      0 0 .04em,
+      0 .06em 0.16em -0.03em inset,
+      0 0 0 .07em transparent inset; // only here because transitions should be color-only
+    border-radius: 0.2em;
+    background: url('data:image/svg+xml;charset=UTF-8,#{$checkmarkSVG}')
+    no-repeat center / 0, white;
+
+    will-change: color, border, background, background-size, box-shadow;
+    transform: translate3d(0,0,0); // hardware acceleration hack for no support for will-change
+    transition:
+      color .1s,
+      border .1s,
+      background .15s,
+      box-shadow .1s;
+  }
+  /*
+   label:active -> when label clicked
+   input:active -> when spacebar pressed while focused
+  */
+  &:enabled:active+label:before,
+  &:enabled+label:active:before {
+    box-shadow:
+      0 0 0.04em,
+      0 .06em 0.16em -0.03em transparent inset,
+      0 0 0 .07em rgba(0,0,0,.1) inset;
+    background-color: rgb(240, 240, 240);
+  }
+
+  &:checked {
+    &+label:before {
+      background-color: #3B99FC;
+      background-size: 0.75em;
+
+      color: rgba(0, 0, 0, 0.075);
+    }
+    &:enabled:active+label:before,
+    &:enabled+label:active:before {
+      background-color: #0a7ffb;
+      color: rgba(0,0,0,0.275);
+    }
+  }
+
+  // faking focus outline
+  &:focus+label:before {
+    box-shadow:
+      // inherited
+      0 0 0.04em,
+      0 .06em 0.16em -0.03em transparent inset,
+      0 0 0 .07em rgba(0,0,0,.1) inset,
+      // additional
+      0 0 0 3px rgba(65, 159, 255, 0.55),
+      0 0 0 4px rgba(65, 159, 255, 0.3);
+  }
+  &:focus:active+label:before,
+  &:focus+label:active:before {
+    box-shadow:
+      // inherited
+      0 0 0.04em,
+      0 .06em 0.16em -0.03em transparent inset,
+      0 0 0 .07em rgba(0,0,0,.1) inset,
+      // additional
+      0 0 0 3px rgba(65, 159, 255, 0.55),
+      0 0 0 4px rgba(65, 159, 255, 0.3);
+  }
+
+  // disabled
+  &:disabled+label:before {
+    opacity: .5;
+  }
+}

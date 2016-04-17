@@ -1,0 +1,129 @@
+/*
+* Funky Button to initiate the DADA
+*/
+
+/* Markup:
+
+<div class="dada-button-container">
+    <button class="dada-button" title="DADA expressly dissociates itself from the contents of this website.">DADA!</button>
+    <span>Please click the button now!</span>
+</div>
+
+*/
+
+@keyframes button {
+	0% {
+		background-color: red;
+		border-color: red;
+		transform: scale(1);
+	}
+	20% {
+		background-color: blue;
+		border-color: blue;
+		transform: scale(1.05);
+	}
+	40% {
+		background-color: #00FF35;
+		border-color: #00FF35;
+		transform: scale(1);
+	}
+	60% {
+		background-color: #FF00FF;
+		border-color: #FF00FF;
+		transform: scale(1.05);
+	}
+	80% {
+		background-color: #F7FF00;
+		border-color: #F7FF00;
+		transform: scale(1.025);
+	}
+	100% {
+		background-color: red;
+		border-color: red;
+		transform: scale(1);
+	}
+}
+
+.dada-button {
+	animation: button 2s linear infinite;
+	background: #FB0000;
+	background: linear-gradient(transparent,rgba(0,0,0,.25));
+	border: solid .1em #fb0000;
+	border: solid .1em red;
+	border-radius: 0.25em;
+	display: inline-block;
+	position: relative;
+	font-size: 28px;
+	padding: 0.4em 0.9em;
+	cursor: pointer;
+	color: white;
+	text-shadow: .075em .075em black;
+	font-family: Impact, sans-serif;
+	letter-spacing: 0.375em;
+
+	transition:
+	transform .2s ease-out,
+	font-size .6s ease-in,
+	border .6s ease-in,
+	text-shadow .6s ease-in,
+	border-radius .6s ease-in,
+	letter-spacing .6s ease-in,
+	padding .6s ease-in;
+
+	&:hover, &:focus {
+		transform: scale(1.05);
+	}
+	&+span {
+		top: 0.4em;
+		left: 4em;
+		width: 10em;
+		font-size: 18px;
+		padding: .75em;
+		padding-left: 0;
+		display: inline-block;
+		background: #333;
+		color: white;
+		line-height: 1.225;
+		position: relative;
+		transition:
+		all .6s ease-in,
+		display .2s;
+		transform-origin: left;
+		font-family: Helvetica, Arial, sans-serif;
+		z-index: 1;
+
+		&,&:before {
+			-webkit-filter: drop-shadow(0 0 .15em);
+		}
+
+		&:before {
+			content: "";
+			position: absolute;
+			right: 100%;
+			top: 50%;
+			margin-top: -3em;
+			border: solid 3em transparent;
+			border-right-color: #333;
+			z-index: -2;
+
+		}
+		&:after {
+			// to cover :before shadow inside of the arrow
+			content: "";
+			background: inherit;
+			height: 100%;
+			width: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: -1;
+		}
+	}
+}
+.dada-button-container {
+	transition: all .6s;
+	&.is-clicked {
+		transform: scale(0);
+		height: 0;
+	}
+}

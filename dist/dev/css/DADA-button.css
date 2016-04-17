@@ -1,0 +1,173 @@
+/*
+* Funky Button to initiate the DADA
+*/
+/* Markup:
+
+<div class="dada-button-container">
+    <button class="dada-button" title="DADA expressly dissociates itself from the contents of this website.">DADA!</button>
+    <span>Please click the button now!</span>
+</div>
+
+*/
+@-webkit-keyframes button {
+  0% {
+    background-color: red;
+    border-color: red;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  20% {
+    background-color: blue;
+    border-color: blue;
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+  40% {
+    background-color: #00FF35;
+    border-color: #00FF35;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  60% {
+    background-color: #FF00FF;
+    border-color: #FF00FF;
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+  80% {
+    background-color: #F7FF00;
+    border-color: #F7FF00;
+    -webkit-transform: scale(1.025);
+            transform: scale(1.025);
+  }
+  100% {
+    background-color: red;
+    border-color: red;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes button {
+  0% {
+    background-color: red;
+    border-color: red;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  20% {
+    background-color: blue;
+    border-color: blue;
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+  40% {
+    background-color: #00FF35;
+    border-color: #00FF35;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  60% {
+    background-color: #FF00FF;
+    border-color: #FF00FF;
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+  80% {
+    background-color: #F7FF00;
+    border-color: #F7FF00;
+    -webkit-transform: scale(1.025);
+            transform: scale(1.025);
+  }
+  100% {
+    background-color: red;
+    border-color: red;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+.dada-button {
+  -webkit-animation: button 2s linear infinite;
+          animation: button 2s linear infinite;
+  background: #FB0000;
+  background: -webkit-linear-gradient(transparent, rgba(0, 0, 0, 0.25));
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.25));
+  border: solid .1em #fb0000;
+  border: solid .1em red;
+  border-radius: 0.25em;
+  display: inline-block;
+  position: relative;
+  font-size: 28px;
+  padding: 0.4em 0.9em;
+  cursor: pointer;
+  color: white;
+  text-shadow: .075em .075em black;
+  font-family: Impact, sans-serif;
+  letter-spacing: 0.375em;
+  -webkit-transition: font-size .6s ease-in, border .6s ease-in, text-shadow .6s ease-in, border-radius .6s ease-in, letter-spacing .6s ease-in, padding .6s ease-in, -webkit-transform .2s ease-out;
+  transition: font-size .6s ease-in, border .6s ease-in, text-shadow .6s ease-in, border-radius .6s ease-in, letter-spacing .6s ease-in, padding .6s ease-in, -webkit-transform .2s ease-out;
+  transition: transform .2s ease-out, font-size .6s ease-in, border .6s ease-in, text-shadow .6s ease-in, border-radius .6s ease-in, letter-spacing .6s ease-in, padding .6s ease-in;
+  transition: transform .2s ease-out, font-size .6s ease-in, border .6s ease-in, text-shadow .6s ease-in, border-radius .6s ease-in, letter-spacing .6s ease-in, padding .6s ease-in, -webkit-transform .2s ease-out;
+}
+
+.dada-button:hover, .dada-button:focus {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.dada-button + span {
+  top: 0.4em;
+  left: 4em;
+  width: 10em;
+  font-size: 18px;
+  padding: .75em;
+  padding-left: 0;
+  display: inline-block;
+  background: #333;
+  color: white;
+  line-height: 1.225;
+  position: relative;
+  -webkit-transition: all .6s ease-in, display .2s;
+  transition: all .6s ease-in, display .2s;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  font-family: Helvetica, Arial, sans-serif;
+  z-index: 1;
+}
+
+.dada-button + span, .dada-button + span:before {
+  -webkit-filter: drop-shadow(0 0 0.15em);
+}
+
+.dada-button + span:before {
+  content: "";
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  margin-top: -3em;
+  border: solid 3em transparent;
+  border-right-color: #333;
+  z-index: -2;
+}
+
+.dada-button + span:after {
+  content: "";
+  background: inherit;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.dada-button-container {
+  -webkit-transition: all .6s;
+  transition: all .6s;
+}
+
+.dada-button-container.is-clicked {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  height: 0;
+}

@@ -1,0 +1,173 @@
+<!doctype html>
+
+<head>
+    <meta charset="utf-8">
+    <title>DADA.js Demo</title>
+    <meta name="description" content="DADA.js is a jQuery plugin to bring DADA to your website.">
+    <link rel="canonical" href="https://matthias-vogt.github.io/DADA.js">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../demo-media/dist/prod/css/demo.css">
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+	     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	 <![endif]-->
+    <main>
+        <header>
+            <h1>DADA.js Demo</h1>
+            <a href="//github.com/matthias-vogt/DADA.js">
+                <svg class="github-logo" viewBox="0 0 34 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <path d="M16.608,0.455 C7.614,0.455 0.32,7.748 0.32,16.745 C0.32,23.942 4.987,30.047 11.46,32.201 C12.275,32.351 12.572,31.848 12.572,31.416 C12.572,31.03 12.558,30.005 12.55,28.646 C8.019,29.63 7.063,26.462 7.063,26.462 C6.322,24.58 5.254,24.079 5.254,24.079 C3.775,23.069 5.366,23.089 5.366,23.089 C7.001,23.204 7.861,24.768 7.861,24.768 C9.314,27.257 11.674,26.538 12.602,26.121 C12.75,25.069 13.171,24.351 13.636,23.944 C10.019,23.533 6.216,22.135 6.216,15.893 C6.216,14.115 6.851,12.66 7.893,11.522 C7.725,11.11 7.166,9.453 8.053,7.211 C8.053,7.211 9.42,6.773 12.532,8.881 C13.831,8.519 15.225,8.339 16.61,8.332 C17.994,8.339 19.387,8.519 20.688,8.881 C23.798,6.773 25.163,7.211 25.163,7.211 C26.052,9.453 25.493,11.11 25.326,11.522 C26.37,12.66 27,14.115 27,15.893 C27,22.151 23.191,23.528 19.563,23.931 C20.147,24.434 20.668,25.428 20.668,26.948 C20.668,29.125 20.648,30.882 20.648,31.416 C20.648,31.852 20.942,32.359 21.768,32.2 C28.236,30.041 32.899,23.94 32.899,16.745 C32.899,7.748 25.605,0.455 16.608,0.455"></path>
+                </svg>
+                <span>DADA.js on Github</span>
+            </a>
+        </header>
+        <h2>Install</h2>
+        <code class="terminal">npm install dada --save</code></p>
+        <h2>Usage</h2>
+        <code>$.DADA(options);</code></p>
+        <br>
+        <input id="enable-cooldown" class="substituted" type="checkbox" checked>
+        <label for="enable-cooldown">Enable 1m cooldown after DADA has completed succesfully</label>
+        <br>
+        <input id="enable-button" class="substituted" type="checkbox">
+        <label for="enable-button">Use DADA-Button</label>
+        <br>
+		<div class="dada-button-container">
+		    <button title="DADA expressly dissociates itself from the contents of this website." class="dada-button">DADA!</button>
+		    <span>Please click the button now!</span>
+		</div>
+        <br>
+        <p class="countdown">DADA will DADA in
+            <time>5s…</time>
+        </p>
+    </main>
+    <link rel="stylesheet" href="../dist/dev/css/DADA.css">
+    <link rel="stylesheet" href="../dist/dev/css/DADA-button.css">
+    <script src="../dist/dev/vendor/js/jquery.min.js"></script>
+    <script src="../dist/dev/vendor/js/js.cookie.js"></script>
+    <script src="../dist/dev/js/DADA.js"></script>
+
+    <script>
+        $(function() {
+
+            var options = {
+                on: {
+                    end: function() {
+                        if ($("#enable-cooldown").prop("checked"))
+                            Cookies.set('DADA ordnungsgemäß durchgeführt', 'true', {
+                                expires: 1 / 24 / 60 * 1, //1m
+                            })
+                    }
+                },
+
+                phrases: [
+                    "Kunst erweitert die Welt",
+                    "Man kann nicht Künstler sein und an die Geschichte glauben",
+                    "Moral auf die alleinige Schärfung des Sinnes für Maß und Gestalt gewandt.",
+                    "Verliebtheit in Kreis und Würfel, in scharf schneidende Linien",
+                    "Stöckchen aus spanischem Rohr",
+                    "Gorgohaupt maßlosen Schreckens",
+                    "Poème simultan",
+                    "Der paralysierende Hintergrund der Dinge",
+                    "Hinrichtung der posierten Moralität und Fülle, Wort als magisches Komplexbild (Pfingsten), Preisgabe des Satzes dem Wort zuliebe",
+                    "Die Scheiße, die Tiere, die Tage  (statt Assonanz der Münzen)",
+                    "Von Energie trunkene Gespenster bohren wir den Dreizack ins ahnungslose Fleisch",
+                    "Geriesel von Verwünschungen",
+                    "Gummi und Regen",
+                    "Unmittelbar schaffen in Lokomotivorganismen",
+                    "Absolut in Reinheit geordnetes Chaos",
+                    "Reiter des Glucksens ersetzen wir die Tränen durch Sirenen",
+                    "Witwer der Gifttraurigkeit",
+                    "Die durch die Sinne eingeengte Logik ist eine gefährliche Krankheit, die Orgel verteilt Nelken für den lieben Gott",
+                    "Im großen Munde voll Honig und voller Exkremente schwimmen",
+                    "Gegen: ein verständliches Werk ist Journalistenprodukt<br>" +
+                    "(= Futter eines Mantels zu öffentlichem Nutzen; " +
+                    "Lampen, die die Brutalität bedecken, Pisse," +
+                    "welkes, abgeschmacktes Fleisch, das sich mit Hilfe" +
+                    "typographischer Mikroben vervielfältigt)" +
+                    "= Zustand des Wahnsinns einer Welt in den Händen von Banditen, die einander zerreißen und Jahrhunderte zerstören ohne Zweck und Absicht",
+                    "Jeder Mensch schreie!!",
+                    "Moralität ist eine Einimpfung von Schokolade in die Adern aller Menschen",
+                    "Vom Trust der Gedankenkrämer und Universitätswucherer"
+                ],
+                icons: [
+                    "http://i.imgur.com/dbzQXLO.jpg",
+                    "http://i.imgur.com/9mCbXhc.jpg",
+                    "http://i.imgur.com/rly2xZT.jpg",
+                    "http://i.imgur.com/B1X4rWW.png"
+                ],
+                sounds: {
+                    random: [
+                        "../demo-media/Windows/xp error.mp3",
+                        "../demo-media/Windows/os2warp3 bells.mp3",
+                        "../demo-media/Windows/os2warp3 drumroll.mp3",
+                        "../demo-media/Windows/os2warp3 twip.mp3",
+                        "../demo-media/Windows/winme chord.mp3",
+                        "../demo-media/Windows/winnt 40 chord.mp3",
+                        "../demo-media/Windows/winnt40 ding.mp3",
+                        "../demo-media/Windows/xp batterycritical.mp3",
+                        "../demo-media/Windows/xp notify.mp3"
+                    ],
+                    special: {
+                        start: [
+                            "../demo-media/Windows/xp error.mp3"
+                        ],
+                        close: [
+                            "../demo-media/Windows/os2warp4  dsk_clsw.mp3",
+                            // "../demo-media/Windows/os2warp4 dsk_drag.mp3",
+                            // "../demo-media/Windows/os2warp4 dsk_opnw.mp3"
+                        ]
+                    }
+                },
+                words: {
+                    cancel: "Abbrechen"
+                }
+            };
+
+            $(".dada-button").on("click", function() {
+                $(this).parent(".dada-button-container").addClass("is-clicked");
+                $("#enable-button").attr("disabled", "disabled");
+                $.DADA(options);
+            });
+
+            $(".countdown").on("click", "#js-clear-cooldown", function() {
+                Cookies.remove("DADA ordnungsgemäß durchgeführt")
+                window.location.reload()
+            });
+
+            if (Cookies.get('DADA ordnungsgemäß durchgeführt')) {
+                $(".countdown").html(
+                    'DADA is on cooldown. ' +
+                    '<a href="#" id="js-clear-cooldown">(clear the cooldown)</a>'
+                );
+                return;
+            }
+
+            var countdown,
+                $countdownTime = $(".countdown time"),
+
+                doCountdown = function() {
+                    if ($(this).prop("checked")) {
+                        clearInterval(countdown);
+                        $countdownTime.text("5s…");
+                    } else {
+                        var i = 5;
+                        countdown = setInterval(function() {
+                            $countdownTime.text((parseInt($countdownTime.text()) - 1) + "s…");
+                            i--;
+                            if (i <= 0) {
+                                $.DADA(options);
+                                clearInterval(countdown);
+                            }
+                        }, 1000)
+                    }
+                };
+
+            $("#enable-button").on("change", doCountdown);
+            doCountdown();
+        })
+    </script>
+</body>
