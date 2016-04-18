@@ -42,11 +42,11 @@
     "url": "matthias-vogt/DADA.js"
   },
   "scripts": {
-    "build": "[ \"$NODE_ENV\" != development ] && (echo \"To run this command, please install with --dev for 'development' NODE_ENV\" && exit 1) || gulp build",
     "clean": "rm -rf dist && rm -rf demo-media/dist",
-    "postinstall": "[ \"$NODE_ENV\" != development ] && npm run build",
-    "rebuild": "[ \"$NODE_ENV\" != development ] && (echo \"To run this command, please install with --dev for 'development' NODE_ENV\" && exit 1) || npm run build",
-    "start": "[ \"$NODE_ENV\" != development ] && (echo \"To run this command, please install with --dev for 'development' NODE_ENV\" && exit 1) || gulp",
-    "test": "echo \"Tests are located in the `/test` directory.\" && exit 1"
+    "build": "[ \"$NODE_ENV\" != production ] && gulp build || (echo \"Unavailable in production because of missing devDepencencies\" && exit 1)",
+    "rebuild": "[ \"$NODE_ENV\" != production ] && npm run clean && npm run build || (echo \"Unavailable in production because of missing devDepencencies\" && exit 1)",
+    "postinstall": "[ \"$NODE_ENV\" != production ] && npm run build",
+    "start": "[ \"$NODE_ENV\" != production ] && gulp || (echo \"Unavailable in production because of missing devDepencencies\" && exit 1)",
+    "test": "echo \"Tests are located in the `/test` directory.\" && exit 0"
   }
 }
