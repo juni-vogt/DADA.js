@@ -40,9 +40,9 @@
   "repository": "matthias-vogt/DADA.js",
   "scripts": {
     "clean": "rm -rf dist && rm -rf demo-media/dist",
-    "build": "if \"$NODE_ENV\" != production; then gulp build; else echo \"Unavailable in production because of missing devDepencencies\" && exit 1 fi",
-    "rebuild": "if \"$NODE_ENV\" != production; then npm run clean && npm run build; else echo \"Unavailable in production because of missing devDepencencies\" && exit 1 fi",
-    "start": "if \"$NODE_ENV\" != production; then gulp; else echo \"Unavailable in production because of missing devDepencencies\" && exit 1 fi",
+    "build": "if \"$NODE_ENV\" != production; then gulp build; else echo \"Unavailable in production because of missing devDepencencies\" && exit 1; fi",
+    "rebuild": "if \"$NODE_ENV\" != production; then npm run clean && npm run build; else echo \"Unavailable in production because of missing devDepencencies\" && exit 1; fi",
+    "start": "if \"$NODE_ENV\" != production; then gulp; else echo \"Unavailable in production because of missing devDepencencies\" && exit 1; fi",
     "test": "echo \"Tests are located in the `/test` directory.\" && exit 0"
   }
 }
