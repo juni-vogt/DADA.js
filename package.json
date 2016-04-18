@@ -42,11 +42,11 @@
     "url": "matthias-vogt/DADA.js"
   },
   "scripts": {
-    "build": "gulp build",
+    "build": "[ \"$NODE_ENV\" != development ] && (echo \"To run this command, please install with --dev for 'development' NODE_ENV\" && exit 1) || gulp build",
     "clean": "rm -rf dist && rm -rf demo-media/dist",
-    "postinstall": "npm run build",
-    "rebuild": "npm run clean && npm run build",
-    "start": "gulp",
+    "postinstall": "[ \"$NODE_ENV\" != development ] && npm run build",
+    "rebuild": "[ \"$NODE_ENV\" != development ] && (echo \"To run this command, please install with --dev for 'development' NODE_ENV\" && exit 1) || npm run build",
+    "start": "[ \"$NODE_ENV\" != development ] && (echo \"To run this command, please install with --dev for 'development' NODE_ENV\" && exit 1) || gulp",
     "test": "echo \"Tests are located in the `/test` directory.\" && exit 1"
   }
 }
