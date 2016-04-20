@@ -2,7 +2,7 @@
  * DADA.js (github.com/matthias-vogt/DADA.js)
  *
  * Copyright (c) 2016 Matthias Vogt
- * Released under the WTFPL
+ * Released under the WTFPL (no warranty)
  */
 /*!
  *  Remixes jquery-boilerplate - v4.1.0
