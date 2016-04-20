@@ -14,7 +14,7 @@ This is a [`jQuery`](//jquery.com) plugin to plant something that looks like a V
 
  — [Wikipedia](https://en.wikipedia.org/wiki/Dada)
 
-In this spirit and to celebrate DADA's 100th anniversary, this plugin is supposed to bring confusion, havoc and fun to the web.
+In this spirit and to celebrate DADA's 100th anniversary, DADA.js is supposed to bring confusion, havoc and fun to the web.
 **It can also be used to announce DADA performances** ;)
 
 ## Usage
@@ -32,7 +32,7 @@ $.DADA(options);
 <script src="DADA.min.js"></script>
 ```
 
-The plugin comes with `DADA-button.scss` which helps you style a cool looking button users can click to initiate the DADA. Kinda ruins the whole point of surprise and confusion but whatever.
+DADA.js comes with `DADA-button.scss` which helps you style a cool looking button users can click to initiate the DADA. Kinda ruins the whole point of surprise and confusion but whatever.
 ```html
 <div class="dada-button-container">
     <button class="dada-button" title="DADA expressly dissociates itself from the contents of this website.">DADA!</button>
