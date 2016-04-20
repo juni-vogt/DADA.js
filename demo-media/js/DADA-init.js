@@ -74,6 +74,11 @@ $(function() {
         }
     };
 
+    var doDada = function() {
+        $("#enable-button").attr("disabled", "disabled");
+        $.DADA(options);
+    };
+
     $(".dada-button").on("click", function() {
         $(this).parent(".dada-button-container").addClass("is-clicked");
         $("#enable-button").attr("disabled", "disabled");
@@ -115,9 +120,4 @@ $(function() {
 
     $("#enable-button").on("change", doCountdown);
     doCountdown();
-
-    var doDada = function() {
-        $("#enable-button").attr("disabled", "disabled");
-        $.DADA(options);
-    }
 })
